@@ -3,21 +3,28 @@ body{
 }
 
 h1 {
-	font-size: 50px;
+  font-size: 50px;
+  text-align: center;
 }
 
 h2 {
-	font-size: 23px;
+  font-size: 23px;
+  text-align: center;
 }
 
 .wrapper{
-	margin:20px 0 20px 15px;
+  margin:20px 0 20px 15px;
+  text-align: center;
+  
 }
 
 button{
-	font-size: 27px;
+  font-size: 27px;
+  text-align: center;
 }
-
+p{
+  text-align: center;
+}
 
 .floatLeft{
 	float:left;

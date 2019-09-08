@@ -18,7 +18,7 @@ var isWin = false;
 // When the user clicks "play" the game picks a word and populates the number of lines
 //corresponding to the number of letters in the chosen word. This is a placeholder for the random word
 function pickAWord() {
-  currentWord = words[Math.floor(Math.random() * words.length)];
+  currentWord = words[1+ Math.floor(Math.random() * words.length)];
   document.getElementById("guesses").innerHTML = "Guesses Remaining: " + guessesRemaining;
   for (var i = 0; i < currentWord.length; i++) {
     answer[i] = "_";
@@ -95,12 +95,12 @@ function gameOver() {
 function reset() {
  currentWord = '';
  answer = [];
-//  wins = 0;
+ //wins = 0;
  holdWord = [];
  userGuess = '';
  guessesRemaining = 10;
  isWin = false;
  document.getElementById("guesses").innerHTML = "Guesses Remaining: " + guessesRemaining;
-//  document.getElementById("wins").innerHTML = "Wins: " + wins;
+ document.getElementById("wins").innerHTML = "Wins: " + wins;
  document.getElementById("blanks").innerHTML = answer;
 }
