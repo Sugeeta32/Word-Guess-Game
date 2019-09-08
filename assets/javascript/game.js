@@ -23,7 +23,7 @@ function pickAWord() {
   for (var i = 0; i < currentWord.length; i++) {
     answer[i] = "_";
     document.getElementById("blanks").innerHTML = answer;
-    console.log(answer);
+   // console.log(answer);
     // replacing the commas from in between the lines in the anser array by spacer .
     var remove = document.getElementById("blanks");
     remove.innerHTML = answer.join(" ");
@@ -64,14 +64,16 @@ function pickALetter(letter) {
 function calculateWin() {
   if (!answer.includes("_") && guessesRemaining > 0) {
     wins++;
+    //var audio = new Audio("/images/crash.mp3");
+    //audio.play();
     document.getElementById("wins").innerHTML = "Wins: " + wins;
     isWin = true;
+    playAudio();
     setTimeout(function() {
-      reset();
       alert("YOU WIN!");
-    //   var audio = new Audio('audio_file.mp3');
-    // audio.play();
-    }, 10);
+      reset();
+      
+    },2);
   }
 }
 // this function  determines if guess remaining
@@ -104,3 +106,6 @@ function reset() {
  document.getElementById("wins").innerHTML = "Wins: " + wins;
  document.getElementById("blanks").innerHTML = answer;
 }
+function playAudio() { 
+  document.getElementById("myAudio").play(); 
+} 
