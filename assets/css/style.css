@@ -1,6 +1,6 @@
 body{
    /* background-image: url(../images/image4.jpg);  */
-  background-color: lightblue;
+  background-color: rgb(91, 141, 158);
 } 
 
 h1 {
@@ -42,7 +42,7 @@ p{
 	height: 51px;
 	padding-top: 10px;
 	background: white;
-	color:black;
+	color:red;
 	font-weight: bold;
 	cursor: pointer;
 	border-radius: 23px;

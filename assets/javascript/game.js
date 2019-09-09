@@ -1,6 +1,6 @@
 
 // Array of words the computer will generate for the game.
-var words = ["crash", "hardware", "byte", "download", "virus", "hacker", "bug", "bandwidth", "cloud", "malware", "cookies"];
+var words = ["crash", "hardware", "byte", "download", "virus", "hacker", "bug", "bandwidth", "cloud", "malware", "cookies","cache","event", "interface","clipboard","configure","hyperlink","mouse","processor"];
 
 // Creating the currentWord variable which holds the randomly selected word.
 var currentWord = '';
@@ -16,7 +16,7 @@ var userGuess = '';
 var guessesRemaining = 10;
 var isWin = false;
 
-/** When the user clicks "play" the game picks a word and populates the number of lines
+/** When the user clicks "Play" button, pickAWord function is called. The game picks a word and populates the number of lines
 corresponding to the number of letters in the chosen word. This is a placeholder for the random word **/
 
 function pickAWord() {
@@ -41,8 +41,8 @@ function pickAWord() {
 function pickALetter(letter) {
   // move letter to correct space.
   if (!guessedLetters.includes(letter)) {
-    guessedLetters.push(letter);
-    userGuess = guessedLetters[guessedLetters.length - 1];
+      guessedLetters.push(letter);
+      userGuess = letter;
   }
 
   // For loop that takes in the users guess and compares it to the current word's letters at each Index number.
@@ -50,15 +50,23 @@ function pickALetter(letter) {
   for (var j = 0; j < currentWord.length; j++) {
     if (userGuess === currentWord.charAt(j)) {
       answer[j] = userGuess;
-      document.getElementById("blanks").innerHTML = answer;
+    
       // removing the commas from in between the letters.
-      var remove = document.getElementById("blanks");
-      remove.innerHTML = answer.join(" ");
-
-      // check if the user has won.
-      calculateWin();
+      document.getElementById("blanks").innerHTML =  answer.join(" ");
     }
+    
   }
+  // check if the user has won.
+  calculateWin();
+  /*if(!isWin){
+    if(!answer.includes(userGuess)){
+      //u did not guess right, so reduce guess remaining. call calculateGuessesRemaining.
+      calculateGuessesRemaining();
+    }
+    if( guessesRemaining === 0) {
+      gameOver();
+    }
+  } */
   if(!isWin && !answer.includes(userGuess) ){
     calculateGuessesRemaining();
   }
@@ -78,9 +86,9 @@ function calculateWin() {
     playAudio();
     setTimeout(function() {
       alert("YOU WIN!");
-      reset();
-      
+      reset(); 
     },2);
+    
   }
 }
 // this function  determines if guess remaining
@@ -90,8 +98,6 @@ function calculateGuessesRemaining(){
     document.getElementById("guesses").innerHTML = "Guesses Remaining: " + guessesRemaining;
   }
 }
-
-
 function gameOver() {
     document.getElementById("guesses").innerHTML = "Guesses Remaining: " + guessesRemaining;
     reset();
