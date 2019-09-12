@@ -54,6 +54,10 @@ p{
 
 }
 
+#alphabet :visited {
+	color: green;
+  }
+
 #titles{
 	font-size: 30px;
 }
